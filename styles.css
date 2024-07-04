@@ -1,0 +1,127 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    background: #0F0C24;
+}
+
+.stars, .twinkling {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background: transparent;
+}
+
+.stars:after {
+    content: " ";
+    background: transparent url('https://www.script-tutorials.com/demos/360/images/stars.png') repeat top center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    animation: move-stars 200s linear infinite;
+}
+
+.twinkling:after {
+    content: " ";
+    background: transparent url('https://www.script-tutorials.com/demos/360/images/twinkling.png') repeat top center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    animation: move-twinkling 200s linear infinite;
+}
+
+@keyframes move-stars {
+    from {transform:translateY(0);}
+    to {transform:translateY(-100%);}
+}
+
+@keyframes move-twinkling {
+    from {transform:translateY(0);}
+    to {transform:translateY(-100%);}
+}
+
+.calculator {
+    z-index: 1;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    background: #0F0C24;
+}
+
+.calculator-screen {
+    width: 100%;
+    height: 80px;
+    border: none;
+    background: #252525;
+    color: white;
+    text-align: right;
+    padding-right: 20px;
+    padding-left: 10px;
+    font-size: 2.5rem;
+}
+
+button {
+    height: 60px;
+    font-size: 1.5rem !important;
+    cursor: pointer;
+    background: #C1436D;
+    border: none;
+    color: white;
+    margin: 5px;
+}
+
+button:hover {
+    background: #A350A3;
+    color: white;
+}
+
+.operator {
+    background: #A350A3;
+}
+
+.operator:hover {
+    background: #C1436D;
+}
+
+.all-clear {
+    background: #C1436D;
+}
+
+.all-clear:hover {
+    background: #A350A3;
+}
+
+.equal-sign {
+    height: 100%;
+    grid-column: span 2;
+    background: #A350A3;
+}
+
+.unit-conversion,
+.bmi-calc {
+    background: #C1436D;
+}
+
+.unit-conversion:hover,
+.bmi-calc:hover {
+    background: #A350A3;
+}
+
+.calculator-keys {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    background: #0F0C24;
+    padding: 20px;
+}

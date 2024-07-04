@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semester Success: Passing Percentage Calculator</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .container {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+    }
+    .section {
+        flex: 1;
+        padding: 20px;
+    }
+    #section1 {
+        background-image: url('pic1.png');
+		height:100%;
+        background-size: cover;
+        background-position: center;
+        overflow-y: auto; /* Scrollable */
+    }
+    #section2 {
+        background-color: white;
+        text-align: center;
+    }
+    #formContainer {
+        text-align: center;
+        padding: 20px;
+        border-radius: 5px;
+        width: 30%; /* Adjust width as desired */
+        margin: 0 auto; /* Center the container */
+      border-radius: 17px;
+background: linear-gradient(315deg, #a2cee0, #c1f5ff);
+box-shadow:  -21px -21px 25px #80a3b1,
+             21px 21px 25px #e8ffff;
+    }
+    input[type="number"], input[type="submit"] {
+        width: calc(100% - 20px);
+        margin-bottom: 10px;
+        padding: 10px;
+        border-radius: 5px;
+        border: 2px solid #acd2b4; /* Changed to outline */
+        box-sizing: border-box;
+		
+		
+    }
+	input[type="submit"] {
+ 
+	width: 50%;
+    background: #86acba;
+    border-radius: 55px;
+background: #e5e6e6;
+box-shadow: inset -21px -21px 25px #a3a3a30
+,
+            inset 21px 21px 25px #ffffff;
+}
+    label {
+        display: block;
+        margin-bottom: 5px;
+        text-align: left;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div id="section1" class="section"></div>
+    <div id="section2" class="section">
+        <h1>Semester Success: Passing Percentage Calculator</h1>
+        <p>Unlock your pathway to academic triumph with our nifty Passing Percentage Calculator!</p>
+    </div>
+    <div id="section3" class="section">
+        <div id="formContainer">
+            <form id="calculatorForm">
+                <label for="currentScore">Predicate mark (%)</label>
+                <input type="number" id="currentScore" min="0" max="100" required>
+                <label for="finalWeight">Final exam weight (%)</label>
+                <input type="number" id="finalWeight" min="0" max="100" required>
+                <label for="passingGrade">Passing grade (%)</label>
+                <input type="number" id="passingGrade" min="0" max="100" required>
+                <label for="examSubminimum">Exam subminimum (%)</label>
+                <input type="number" id="examSubminimum" min="0" max="100" required>
+                <input type="submit" value="Calculate">
+            </form>
+            <div id="result"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById("calculatorForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        var currentScore = parseFloat(document.getElementById("currentScore").value);
+        var finalWeight = parseFloat(document.getElementById("finalWeight").value);
+        var passingGrade = parseFloat(document.getElementById("passingGrade").value);
+        var examSubminimum = parseFloat(document.getElementById("examSubminimum").value);
+
+        if (isNaN(currentScore) || isNaN(finalWeight) || isNaN(passingGrade) || isNaN(examSubminimum)) {
+            alert("Please enter valid numbers.");
+            return;
+        }
+
+        var requiredScore = (passingGrade - (1 - finalWeight / 100) * currentScore) / (finalWeight / 100);
+        requiredScore = Math.max(0, requiredScore); // Ensure the required score is not negative
+
+        if (requiredScore < examSubminimum) {
+            document.getElementById("result").innerText = "You need to score at least " + requiredScore.toFixed(2) + "% on the final exam to pass the semester, but because of the subminimum you should get " + examSubminimum.toFixed(2) + "%.";
+        } else {
+            document.getElementById("result").innerText = "You need to score at least " + requiredScore.toFixed(2) + "% on the final exam to pass the semester.";
+        }
+    });
+</script>
+
+</body>
+</html>
