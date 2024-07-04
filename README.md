@@ -3,6 +3,8 @@ Exam Grade Calculator  Calculate the minimum mark needed in your upcoming exam t
 
 Welcome to our exam grade calculator tool! Are you wondering what minimum mark you need to pass your module or course? Look no further! Our intuitive calculator helps you determine the exact score required to meet your passing criteria based on your course requirements.
 
+![Screenshot 2024-07-04 042209](https://github.com/Unarine04/ExamMark.calc/assets/115855736/c11dbc63-e510-4034-9f19-163f3b1e567f)
+
 # How it works:
 
 1.Enter Your Requirements: Input your current scores and the passing threshold set by your institution or course. This typically includes details such as the weightage of each assessment (e.g., assignments, quizzes, midterm exams) and the minimum passing grade required (e.g., 50%, C grade).
